@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
+import 'agenda_list.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget{
-  Widget build (BuildContext context) {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('Muhammad Albar', style: TextStyle(color: Colors.white),),
-          backgroundColor: Colors.green ,
-        ),
-        body: Center(
-          child: Text('Halo Selamat Datang Di Flutter'),
-        ),
-      ),
+      title: 'Agenda App',
+      theme: ThemeData(primarySwatch: Colors.teal),
+      home: const AgendaList(),
     );
   }
 }
