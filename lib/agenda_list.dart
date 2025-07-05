@@ -46,7 +46,7 @@ class _AgendaListState extends State<AgendaList> {
                 final item = data[i];
                 return ListTile(
                   title: Text(item.judul),
-                  subtitle: Text(item.keterangan),
+                  subtitle: Text('${item.keterangan}\n ${item.tanggal}\n ${item.alamat}'),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [

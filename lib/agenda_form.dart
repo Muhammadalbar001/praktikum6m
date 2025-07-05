@@ -14,6 +14,8 @@ class _AgendaFormState extends State<AgendaForm> {
   final _formKey = GlobalKey<FormState>();
   final _judul = TextEditingController();
   final _ket = TextEditingController();
+  final _al = TextEditingController();
+  final _tgl = TextEditingController();
   final _service = AgendaService();
 
   @override
@@ -22,6 +24,9 @@ class _AgendaFormState extends State<AgendaForm> {
     if (widget.agenda != null) {
       _judul.text = widget.agenda!.judul;
       _ket.text = widget.agenda!.keterangan;
+      _al.text = widget.agenda!.alamat;
+      _tgl.text = widget.agenda!.tanggal;
+      
     }
   }
 
@@ -31,6 +36,10 @@ class _AgendaFormState extends State<AgendaForm> {
         id: widget.agenda?.id,
         judul: _judul.text,
         keterangan: _ket.text,
+        alamat: _al.text,
+        tanggal: _tgl.text,
+        
+        
       );
       try {
         if (widget.agenda == null) {
@@ -68,6 +77,14 @@ class _AgendaFormState extends State<AgendaForm> {
               TextFormField(
                 controller: _ket,
                 decoration: const InputDecoration(labelText: 'Keterangan'),
+              ),
+              TextFormField(
+                controller: _al,
+                decoration: const InputDecoration(labelText: 'alamat'),
+              ),
+              TextFormField(
+                controller: _tgl,
+                decoration: const InputDecoration(labelText: 'tanggal'),
               ),
               const SizedBox(height: 20),
               ElevatedButton(
